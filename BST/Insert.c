@@ -63,7 +63,18 @@ void insert(int b){
      }
 
 }
-
+int height(struct tree* root){
+    int lh,rh;
+    if (root==NULL)
+        return 0;
+    else {
+        lh=height(root->left)+1;
+        rh=height(root->right)+1;
+    }
+    if (lh>rh)
+    rh=lh;
+    return rh;
+}
 void preorder(struct tree* root ){
     if(root==NULL)
     return;
@@ -121,6 +132,7 @@ int main(){
       printf("\nLevelorder:");
       if  (a==9)
       levelorder(root);
+      printf("\nHeight of the tree:%d",height(root));
       printf("\nEnter the choice:");
       scanf("%d",&a);
     }
